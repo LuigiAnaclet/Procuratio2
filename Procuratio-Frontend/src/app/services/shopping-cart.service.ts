@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 export class ShoppingCartService {
   private itemsInCartSubject = new BehaviorSubject<Map<number, { product: Product; quantity: number; }>>(new Map());
   
-  private baseUrl: string = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/api/cart';
+  private baseUrl: string = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com:443/api/cart';
 
   constructor(private httpClient: HttpClient, private authService: AuthService) {}
 

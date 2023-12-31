@@ -15,7 +15,7 @@ const promoRoutes=require('./routes/promo');
 const customersRoutes=require('./routes/customers');
 const messages=require('./messages');
 const paymentsRoutes=require('./routes/payment');
-const PORT = 3000;
+const PORT = 443;
 require('dotenv').config();
 
 app.use(cors()); 
