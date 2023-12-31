@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CampaignService {
-  private baseUrl = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/api/campaigns';
+  private baseUrl = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/campaigns';
 
   constructor(private http: HttpClient) { }
 

@@ -7,7 +7,7 @@ import { Appointment } from '../models/appointment.model';
   providedIn: 'root'
 })
 export class AppointmentService {
-  private baseUrl = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/api/appointments';
+  private baseUrl = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/appointments';
 
   constructor(private http: HttpClient) {}
 

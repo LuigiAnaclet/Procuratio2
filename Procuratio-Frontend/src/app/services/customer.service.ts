@@ -8,7 +8,7 @@ import { Customer } from '../models/customer.model';
   providedIn: 'root'
 })
 export class CustomerService {
-  private baseUrl = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/api/customers';
+  private baseUrl = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/customers';
 
   constructor(private http: HttpClient) {}
 
