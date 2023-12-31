@@ -7,7 +7,7 @@ import { Receipt } from '../models/receipt.model';
   providedIn: 'root'
 })
 export class ReceiptService {
-  private baseUrl = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/sales-receipts';
+  private baseUrl = 'http://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/sales-receipts';
 
   constructor(private http: HttpClient) {}
 

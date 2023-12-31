@@ -7,7 +7,7 @@ import { loadStripe, Stripe, StripeCardElement } from '@stripe/stripe-js';
 })
 export class PaymentService {
   constructor(private http: HttpClient) {}
-  private baseUrl: string = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com';
+  private baseUrl: string = 'http://procuratio-lanaclet.francecentral.cloudapp.azure.com';
   private stripePromise = loadStripe('pk_test_51ORIjCIP5xW4dG0q7hN52XTpydJutuYcoLZSr3s3SO8wOJUJey3LlaPVLhlqulqb3FxSCKXs05iZNuYxpw3cCqxt00PuIE7KuP');
   private cardElement: StripeCardElement | undefined;
 

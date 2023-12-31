@@ -6,7 +6,7 @@ import { Service } from '../models/service.model';
   providedIn: 'root'
 })
 export class ServicesService {
-  private baseUrl: string = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/services';
+  private baseUrl: string = 'http://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/services';
 
   constructor(private http: HttpClient) {}
 
