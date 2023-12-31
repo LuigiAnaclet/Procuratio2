@@ -1,0 +1,27 @@
+<div class="sales-receipt-container">
+  <button mat-button (click)="onCreateNewReceipt()">Create New Receipt</button>
+
+  <app-receipt-list 
+    (createNewReceipt)="onCreateNewReceipt()"
+    [receipts]="receipts"
+    (selectReceipt)="onReceiptSelected($event)">
+  </app-receipt-list>
+
+  <app-add-item (itemAdded)="onItemAdded($event)" (receiptNameChanged)="onReceiptNameChanged($event)" *ngIf="isAddingProduct || isAddingService"></app-add-item>
+
+  <app-receipt-detail 
+  *ngIf="selectedReceipt"
+  [receipt]="selectedReceipt"
+  (updateReceipt)="onSaveReceipt($event)"
+  (addItem)="onItemAdded($event)"
+  (applyPromoCode)="handleApplyPromoCode($event)"
+  (applyDiscount)="handleApplyDiscount($event)"
+  (deleteReceipt)="onDeleteReceipt($event)">
+</app-receipt-detail>
+
+  
+  <app-total-summary 
+    *ngIf="selectedReceipt"
+    [receipt]="selectedReceipt">
+  </app-total-summary>
+</div>

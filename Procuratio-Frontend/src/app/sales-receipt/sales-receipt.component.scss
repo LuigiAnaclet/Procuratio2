@@ -1,0 +1,11 @@
+.sales-receipt-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+
+  .receipt-details {
+    flex-grow: 2;
+    margin-left: 20px;
+  }
+}

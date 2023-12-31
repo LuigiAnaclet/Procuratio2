@@ -1,0 +1,38 @@
+<ul>
+  <li *ngFor="let item of receipt?.items">
+    <app-receipt-item
+      [item]="item"
+      (quantityChange)="handleQuantityChange($event)"
+      (deleteItem)="handleDeleteItem($event)"
+    ></app-receipt-item>
+  </li>
+</ul>
+<div *ngIf="receipt" class="receipt-detail">
+    <h2>Receipt Details</h2>
+    <h3>{{ receipt.customer_name }}</h3>
+  
+    <ul>
+      <li *ngFor="let item of receipt?.items">
+        {{ item.name }} - {{ item.price_per_unit | currency }} x {{item.quantity}}
+      </li>
+    </ul>
+    <label for="paymentMethod">Payment Method:</label>
+    <select id="paymentMethod" [(ngModel)]="receipt.paymentMethod" 
+    (change)="receipt.paymentMethod ? onPaymentMethodChange(receipt.paymentMethod) : null">
+    <option value="card">Card</option>
+    <option value="check">Check</option>
+    <option value="species">Species</option>
+  </select>
+
+
+<input type="text" placeholder="Enter promo code" #promoCodeInput>
+<button (click)="onApplyPromoCode(promoCodeInput.value)">Apply</button>
+
+<input type="number" placeholder="Enter discount" #discountInput>
+<button (click)="onApplyDiscount(discountInput.valueAsNumber)">Apply</button>
+  </div>
+  <button mat-button (click)="onDeleteReceipt()">Delete Receipt</button>
+  <div class="email-send-section">
+    <input type="email" [(ngModel)]="emailToSend" placeholder="Enter email address">
+    <button (click)="onSendReceipt()">Send Receipt</button>
+</div>

@@ -1,0 +1,59 @@
+<form [formGroup]="appointmentForm" (ngSubmit)="saveAppointment()">
+    <div class="form-group">
+      <label for="customer_id">Customer</label>
+      <select formControlName="customer_id" id="customer-select" [(ngModel)]="selectedCustomerId">
+        <option *ngFor="let customer of customers" [value]="customer.user_id">{{ customer.first_name }}{{ customer.last_name }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="service_id">Service</label>
+      <select formControlName="service_id" id="service_id">
+        <option *ngFor="let service of services" [value]="service.service_id">{{ service.name }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="employee_id">Employee</label>
+      <select formControlName="employee_id" id="employee-select" [(ngModel)]="selectedEmployeeId">
+        <option *ngFor="let employee of employees" [value]="employee.user_id">{{ employee.first_name }}{{ employee.last_name }}</option>
+      </select>
+    </div>
+  
+    <div class="form-group">
+      <label for="appointment_date">Date & Time</label>
+      <input type="datetime-local" formControlName="appointment_date" id="appointment_date">
+    </div>
+  
+    <div class="form-group">
+      <label for="duration">Duration (minutes)</label>
+      <input type="number" formControlName="duration" id="duration">
+    </div>
+    <label>
+      <input type="checkbox" formControlName="reminderSms">
+      SMS
+    </label>
+    <label>
+      <input type="checkbox" formControlName="reminderEmail">
+      Email
+    </label>
+    <label>
+      Reminder Time Frame:
+      <select formControlName="reminderTimeFrame">
+        <option value="1">1 hour before</option>
+        <option value="24">24 hours before</option>
+        <option value="48">2 days before</option>
+      </select>
+    </label>   
+    <div *ngIf="appointmentForm.get('appointment_date')?.errors?.['weekend']" class="error-message">
+      Appointments cannot be scheduled on weekends.
+    </div>
+    <div *ngIf="appointmentForm.get('appointment_date')?.errors?.['businessHours']" class="error-message">
+      Appointments must be scheduled between 9 am and 5 pm.
+    </div>
+    <div *ngIf="appointmentNotAvailable" class="error-message">
+      Appointment not available, please check availability.
+    </div>
+    <button type="submit" [disabled]="!appointmentForm.valid">Save Appointment</button>
+  </form>
+  

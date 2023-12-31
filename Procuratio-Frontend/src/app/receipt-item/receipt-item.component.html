@@ -1,0 +1,17 @@
+<div *ngIf="item" class="receipt-item">
+  <div class="item-name">{{ item.name }}</div>
+  <div class="item-price">{{ item.price_per_unit | currency }}</div>
+  <input
+    *ngIf="item.type === 'product'"
+    type="number"
+    [(ngModel)]="item.quantity"
+    (change)="onQuantityDurationChange($any($event.target).value)"
+  >
+  <input
+    *ngIf="item.type === 'service'"
+    type="number"
+    [(ngModel)]="item.duration"
+    (change)="onQuantityDurationChange($any($event.target).value)"
+  >
+  <button class="delete-item-btn" (click)="onDeleteItem()">🗑️</button>
+</div>

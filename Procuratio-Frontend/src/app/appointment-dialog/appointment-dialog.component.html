@@ -1,0 +1,16 @@
+<h2 mat-dialog-title>Appointment Details</h2>
+
+<mat-dialog-content>
+  <div *ngIf="data">
+    <p><strong>Service:</strong> {{ data.serviceName }}</p>
+    <p><strong>Customer:</strong> {{ data.customerName }}</p>
+    <p><strong>Employee:</strong> {{ data.employeeName }}</p>
+    <p><strong>Date:</strong> {{ data.appointment_date | date: 'fullDate' }}</p>
+  </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="onDelete()">Delete Appointment</button>
+  <button mat-button mat-dialog-close>Close</button>
+</mat-dialog-actions>
+

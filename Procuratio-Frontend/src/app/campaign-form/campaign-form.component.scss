@@ -1,0 +1,59 @@
+.campaign-form-container {
+    background: #f9f9f9;
+    padding: 2em;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .campaign-form-container .form-field {
+    margin-bottom: 1em;
+  }
+  
+  .campaign-form-container label {
+    display: block;
+    margin-bottom: 0.5em;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .campaign-form-container input[type="text"],
+  .campaign-form-container input[type="date"],
+  .campaign-form-container textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  .campaign-form-container textarea {
+    resize: vertical;
+  }
+  
+  .campaign-form-container button[type="submit"] {
+    padding: 10px 20px;
+    background-color: #0090c5;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .campaign-form-container button[type="submit"]:hover {
+    background-color: #007ba7;
+  }
+  
+  .campaign-form-container button[type="submit"]:disabled {
+    background-color: #cccccc;
+    cursor: default;
+  }
+  
+  @media (max-width: 736px) {
+    .campaign-form-container {
+      padding: 1em;
+    }
+  }
+  

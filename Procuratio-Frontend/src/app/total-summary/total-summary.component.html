@@ -1,0 +1,15 @@
+<div *ngIf="receipt" class="total-summary">
+    <div class="subtotal">
+      <span>Subtotal</span>
+      <span>{{ subtotal | currency }}</span>
+    </div>
+    <div class="discount">
+      <span>Discount ({{ receipt.discount }}%)</span>
+      <span>-{{ discountAmount | currency }}</span>
+    </div>
+    <div class="total">
+      <span>Total</span>
+      <span>{{ total | currency }}</span>
+    </div>
+  </div>
+  

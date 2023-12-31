@@ -1,0 +1,40 @@
+<h2>Ajouter un produit</h2>
+
+<form (submit)="addProduct()">
+  <div>
+    <label>Nom:</label>
+    <input [(ngModel)]="product.name" name="name" required>
+  </div>
+
+  <div>
+    <label>Quantité :</label>
+    <input [(ngModel)]="product.quantity" name="quantity" type="number" required>
+  </div>
+
+  <div>
+    <label>Prix :</label>
+    <input [(ngModel)]="product.price" name="price" type="number" step="0.01" required>
+  </div>
+
+  <div>
+    <label>Ajouter une image:</label>
+    <input type="file" (change)="onFileSelected($event)">
+  </div>
+
+  <div>
+    <label>Description :</label>
+    <textarea [(ngModel)]="product.description" name="description"></textarea>
+  </div>
+
+  <div>
+    <label>Marque :</label>
+    <input [(ngModel)]="product.brand" name="brand">
+  </div>
+
+  <div>
+    <label>Supplier :</label>
+    <input [(ngModel)]="product.supplier" required name="supplier">
+  </div>
+
+  <button type="submit">Ajouter un produit</button>
+</form>

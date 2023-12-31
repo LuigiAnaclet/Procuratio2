@@ -1,0 +1,42 @@
+<div class="customer-file-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Select a Customer</mat-label>
+      <input type="text" matInput [formControl]="customerControl" [matAutocomplete]="auto" placeholder="Search customer...">
+
+<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+  <mat-option *ngFor="let customer of filteredCustomers | async" [value]="customer" (onSelectionChange)="onCustomerSelected(customer)">
+    {{customer.first_name}} {{customer.last_name}}
+  </mat-option>
+</mat-autocomplete>
+    </mat-form-field>
+    <div *ngIf="selectedCustomer">
+        <h2>Personal Information</h2>
+      <h3>{{ selectedCustomer.first_name }} {{ selectedCustomer.last_name }}</h3>
+      <p>Email: {{ selectedCustomer.email }}</p>
+      <div>
+        <h3>Fidelity Points: {{selectedCustomer.fidelity_point}}</h3>
+        <ul> </ul>
+      </div>
+    </div>
+
+    
+
+  <div>
+    <h3>Purchase History</h3>
+    <ul>
+      <li *ngFor="let purchase of purchases">
+        {{ purchase.date }} - {{ purchase.total_amount }} $
+      </li>
+    </ul>
+  </div>
+
+  <div>
+    <h3>Upcoming Appointments</h3>
+    <ul>
+      <li *ngFor="let appointment of appointments">
+        {{ appointment.appointment_date }} - {{ appointment.serviceName }}
+      </li>
+    </ul>
+  </div>
+  </div>
+  

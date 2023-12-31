@@ -1,0 +1,34 @@
+<h2>Edit Service</h2>
+<form (submit)="onSave()">
+    <div>
+        <label>Name:</label>
+        <input [ngModel]="selectedService?.name" 
+       (ngModelChange)="selectedService!.name = $event" 
+       name="name" required>
+      </div>
+    
+      <div>
+        <label>Duration:</label>
+        <input [ngModel]="selectedService?.duration" 
+       (ngModelChange)="selectedService!.duration = $event" 
+       name="duration" type="number" required>
+      </div>
+    
+      <div>
+        <label>Price:</label>
+        <input [ngModel]="selectedService?.price" 
+       (ngModelChange)="selectedService!.price = $event" 
+       name="price" type="number" required>
+      </div>
+    
+      <div>
+        <label>composition:</label>
+        <input [ngModel]="selectedService?.composition" 
+       (ngModelChange)="selectedService!.composition = $event" 
+       name="composition" required>
+      </div>
+
+  <button type="submit">Update</button>
+  <button (click)="onCancel()">Cancel</button>
+</form>
+

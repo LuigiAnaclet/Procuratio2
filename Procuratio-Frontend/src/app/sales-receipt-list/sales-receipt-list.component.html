@@ -1,0 +1,8 @@
+<div class="receipt-list">
+    <ul>
+      <li *ngFor="let receipt of receipts" (click)="onSelect(receipt)">
+        {{ receipt.customer_name }} - {{ receipt.date | date:'short' }}
+      </li>
+    </ul>
+  </div>
+  

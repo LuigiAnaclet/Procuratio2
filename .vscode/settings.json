@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/bd048a0e-6858-4059-8cd6-43d4f762bde9/resourceGroups/Procuratio/providers/Microsoft.Web/sites/Procuratio",
+    "appService.deploySubpath": "Procuratio-Frontend\\dist"
+}

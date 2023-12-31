@@ -1,0 +1,28 @@
+mat-toolbar {
+    background-color: #404248;
+    color: white;
+  }
+  
+  mat-toolbar mat-icon {
+    color: white;
+  }
+  mat-toolbar button {
+    margin-right: 20px;
+  }
+  
+  .spacer {
+    flex: 1 1 auto;
+  }
+  .mat-menu-panel {
+    background-color: #404248; 
+    color: #ffffff;
+  }
+  
+  .mat-menu-item {
+    color: #ffffff; 
+  }
+  
+  .mat-menu-item:hover {
+    background-color: #50575d;
+  }
+  

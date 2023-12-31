@@ -1,0 +1,73 @@
+<div class="register-container">
+  <h2>Register</h2>
+
+  <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <label for="first_name">First name:</label>
+    <input
+      type="first_name"
+      id="first_name"
+      [(ngModel)]="user.first_name"
+      name="first_name"
+      required
+    />
+    <div *ngIf="submitted && !user.first_name" class="error-message">
+      Please enter your first name.
+    </div>
+
+    <label for="last_name">Last Name:</label>
+    <input
+      type="last_name"
+      id="last_name"
+      [(ngModel)]="user.last_name"
+      name="last_name"
+      required
+    />
+    <div *ngIf="submitted && !user.last_name" class="error-message">
+      Please enter your last name.
+    </div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" [(ngModel)]="user.email" name="email" required
+    pattern="^.+@.+\..+$" #emailField="ngModel">
+<div *ngIf="submitted && emailField.invalid" class="error-message">
+Please enter a valid email address.
+</div>
+
+
+
+    <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      [(ngModel)]="user.password"
+      name="password"
+      required
+    />
+    <div *ngIf="submitted && !user.password" class="error-message">
+      Please enter a password.
+    </div>
+
+    <div>
+      <label for="phone">Phone Number:</label><br>
+      <input type="tel" id="phone" name="phone" class="phone-input" #phoneField="ngModel"
+        (blur)="onBlur()" [(ngModel)]="user.phone" #telInput required>
+      <div *ngIf="submitted && (isInvalid)" class="error-message">
+        Please enter a valid phone number.
+      </div>
+    </div>
+
+    <label for="role" *ngIf="authService.isAdmin();">Role:</label>
+<select id="role" *ngIf="authService.isAdmin(); else isCustomer" [(ngModel)]="user.role" name="role" required>
+<option value="customer">Customer</option>
+<option value="employee">Employee</option>
+<option value="supplier">Supplier</option>
+</select>
+
+<ng-template #isCustomer for="role" value="customer"></ng-template>
+
+    <button type="submit">Register</button>
+  </form>
+
+  <div *ngIf="submitted && registerForm.invalid" class="error-message">
+    Please fill in all required fields.
+  </div>
+</div>

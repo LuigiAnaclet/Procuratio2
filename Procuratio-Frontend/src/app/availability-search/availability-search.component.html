@@ -1,0 +1,32 @@
+<div class="availability-search">
+    <form [formGroup]="searchForm" (ngSubmit)="onSearch()">
+      <div>
+        <label for="service">Service:</label>
+        <select formControlName="service_id">
+          <option *ngFor="let service of services" [value]="service.service_id">{{ service.name }}</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="employee">Employee:</label>
+        <select formControlName="employee_id">
+          <option *ngFor="let employee of employees" [value]="employee.user_id">{{ employee.first_name }} {{ employee.last_name }}</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" formControlName="desired_date">
+      </div>
+  
+      <button type="submit">Search</button>
+    </form>
+  
+    <div *ngIf="availableSlots.length > 0">
+      <h3>Available Slots:</h3>
+      <ul>
+        <li *ngFor="let slot of availableSlots">{{ slot | date:'shortTime' }}</li>
+      </ul>
+    </div>
+  </div>
+  

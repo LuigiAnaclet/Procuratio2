@@ -1,0 +1,8 @@
+<div *ngFor="let item of cartItemsArray">
+    <div>{{ item.product.name }} - {{ item.product.price | currency }}</div>
+    <div>Quantity: {{ item.quantity }}</div>
+    <button (click)="removeItemFromCart(item.product.product_id!)">Remove</button>
+  </div>
+  <a routerLink="/checkout">Proceed to Checkout</a>
+  <button (click)="clearCart()">Clear Cart</button>
+  

@@ -1,0 +1,52 @@
+<h2>Edit Product</h2>
+<form (submit)="updateProduct()">
+    <div>
+        <label>Name:</label>
+        <input [ngModel]="selectedProduct?.name" 
+       (ngModelChange)="selectedProduct!.name = $event" 
+       name="name" required>
+      </div>
+    
+      <div>
+        <label>Quantity:</label>
+        <input [ngModel]="selectedProduct?.quantity" 
+       (ngModelChange)="selectedProduct!.quantity = $event" 
+       name="quantity" type="number" required>
+      </div>
+    
+      <div>
+        <label>Price:</label>
+        <input [ngModel]="selectedProduct?.price" 
+       (ngModelChange)="selectedProduct!.price = $event" 
+       name="price" type="number" required>
+      </div>
+    
+      <div>
+        <label>Picture </label>
+        <input type="file" (change)="onFileSelected($event)">
+      </div>
+    
+      <div>
+        <label>Description:</label>
+        <input [ngModel]="selectedProduct?.description" 
+       (ngModelChange)="selectedProduct!.description = $event" 
+       name="description" required>
+      </div>
+    
+      <div>
+        <label>Brand:</label>
+        <input [ngModel]="selectedProduct?.brand" 
+       (ngModelChange)="selectedProduct!.brand = $event" 
+       name="brand" required>
+      </div>
+    
+      <div>
+        <label>Type:</label>
+        <input [ngModel]="selectedProduct?.type" 
+       (ngModelChange)="selectedProduct!.type = $event" 
+       name="type" required>
+      </div>
+
+  <button type="submit">Update</button>
+  <button (click)="onCancel()">Cancel</button>
+</form>

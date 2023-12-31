@@ -1,0 +1,55 @@
+
+.product-details, .service-details {
+  border: 1px solid #e0e0e0;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start; 
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+  flex-wrap: wrap; 
+}
+
+.product-image {
+  width: 150px;
+  height: auto;
+  margin-right: 20px; 
+  margin-bottom: 20px; 
+}
+
+.product-details div, .service-details div {
+  flex-grow: 1; 
+}
+
+.product-details h3, .product-details p,
+.service-details h3, .service-details p {
+  margin: 0.5em 0; 
+  width: 100%;
+}
+
+.product-details button, .service-details button {
+  margin-top: 10px;
+  margin-right: 10px; 
+  padding: 0.5em 1em; 
+  border: none;
+  background-color: #0090c5; 
+  color: white; 
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer; 
+}
+
+.product-details button:hover, .service-details button:hover {
+  background-color: #007ba7; 
+}
+
+@media screen and (max-width: 736px) {
+  .product-image {
+    width: 100px;
+  }
+  .product-details div, .service-details div,
+  .product-details p, .service-details p {
+    width: auto;
+  }
+}

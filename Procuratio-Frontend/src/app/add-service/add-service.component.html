@@ -1,0 +1,36 @@
+<h2>Ajouter un service</h2>
+
+<form (submit)="addService()">
+  <div>
+    <label>Nom :</label>
+    <input [(ngModel)]="service.name" name="name" required>
+  </div>
+
+  <div>
+    <label>Prix :</label>
+    <input [(ngModel)]="service.price" name="price" type="number" step="0.01" required>
+  </div>
+
+  <div>
+    <label>Composition :</label>
+    <textarea [(ngModel)]="service.composition" name="description"></textarea>
+  </div>
+
+  <div>
+    <label>Durée :</label>
+    <input [(ngModel)]="service.duration" type="number" step="1" name="duration">
+  </div>
+
+  <mat-form-field>
+    <mat-label>Date</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="service.service_date" required name="service_date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+    <label>Supplier :</label>
+    <input [(ngModel)]="service.supplier" required name="supplier_id">
+
+
+  <button type="submit">Ajouter un service</button>
+</form>
+

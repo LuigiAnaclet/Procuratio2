@@ -1,0 +1,17 @@
+<div class="campaign-form-container">
+  <form [formGroup]="campaignForm" (ngSubmit)="onSubmit()">
+    <div class="form-field">
+      <label for="title">Campaign Title</label>
+      <input type="text" id="title" formControlName="title">
+    </div>
+    <div class="form-field">
+      <label for="message">Campaign Message</label>
+      <textarea id="message" rows="4" formControlName="message"></textarea>
+    </div>
+    <div class="form-field">
+      <label for="sendDate">Send Date</label>
+      <input type="date" id="sendDate" formControlName="sendDate">
+    </div>
+    <button type="submit" [disabled]="!campaignForm.valid">Schedule Campaign</button>
+  </form>
+</div>

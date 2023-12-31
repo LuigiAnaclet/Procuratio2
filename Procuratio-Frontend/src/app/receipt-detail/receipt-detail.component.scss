@@ -1,0 +1,126 @@
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.5em;
+  border-bottom: 1px solid #eaeaea;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+.receipt-detail {
+  background: #f9f9f9;
+  padding: 2em;
+  border-radius: 4px;
+  max-width: 600px;
+  margin: 2em auto;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.receipt-detail h2,
+.receipt-detail h3 {
+  margin: 0.5em 0;
+  color: #333;
+}
+
+.receipt-detail label {
+  font-weight: bold;
+  display: block;
+  margin: 1em 0 0.5em;
+}
+
+.receipt-detail select {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.receipt-detail input[type="text"],
+.receipt-detail input[type="email"],
+.receipt-detail input[type="number"] {
+  width: calc(100% - 2em);
+  padding: 0.5em;
+  margin-right: 0.5em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 1em;
+  display: inline-block;
+}
+
+.receipt-detail button {
+  padding: 0.5em 1em;
+  background-color: #0090c5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.receipt-detail button:hover {
+  background-color: #007ba7;
+}
+
+.email-send-section {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.email-send-section input[type="email"] {
+  width: calc(100% - 4em);
+  padding: 0.5em;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: inline-block;
+  margin-right: 0.5em;
+}
+
+.email-send-section button {
+  padding: 0.5em 1em;
+  background-color: #0090c5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.email-send-section button:hover {
+  background-color: #007ba7;
+}
+
+button[mat-button] {
+  background-color: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  margin-top: 1em;
+}
+
+button[mat-button]:hover {
+  background-color: #cc0000;
+}
+
+@media (max-width: 736px) {
+  .receipt-detail input[type="text"],
+  .receipt-detail input[type="email"],
+  .receipt-detail input[type="number"],
+  .email-send-section input[type="email"] {
+    width: calc(100% - 1em);
+    margin-bottom: 0.5em;
+  }
+
+  .receipt-detail button,
+  .email-send-section button {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 0.5em;
+  }
+}

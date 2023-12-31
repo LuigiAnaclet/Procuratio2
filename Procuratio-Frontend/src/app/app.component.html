@@ -1,0 +1,39 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button *ngIf="canGoBack()" (click)="goBack()">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  
+  <a routerLink="/" routerLinkActive="active">WAREHOUSE</a>
+
+  <a *ngIf="authService.isCustomer()" [routerLink]="['/cart']">
+    <mat-icon>shopping_cart</mat-icon>
+  </a>
+
+  <span class="spacer"></span>
+  <span *ngIf="authService.isUserLoggedIn()">Hello, {{ authService.getCurrentUserName() }}</span>
+  <mat-icon>access_time</mat-icon>{{ currentTime }}
+
+  <button mat-icon-button [matMenuTriggerFor]="mainMenu">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  
+
+  <mat-menu #mainMenu="matMenu">
+    <button mat-menu-item *ngIf="authService.isEmployee()" routerLink="/product/add">Ajouter un produit</button>
+    <button mat-menu-item *ngIf="authService.isEmployee()" routerLink="/service/add">Ajouter un service</button>
+    <button mat-menu-item *ngIf="!authService.isUserLoggedIn() || authService.isAdmin() " routerLink="/register">Créer un compte</button>
+    <button mat-menu-item *ngIf="!authService.isUserLoggedIn()"routerLink="/login">Se connecter</button>
+    <button mat-menu-item *ngIf="authService.isEmployee()" routerLink="/receipt">Reçu</button>
+    <button mat-menu-item routerLink="/appointment">RDV</button>
+    <button mat-menu-item routerLink="/appointment/create">Prendre RDV</button>
+    <button mat-menu-item routerLink="/appointment/availability">Disponibilité RDV</button>
+    <button mat-menu-item *ngIf="authService.isEmployee()" routerLink="/customer-file">Fichier client</button>
+    <button mat-menu-item *ngIf="authService.isEmployee()" routerLink="/campaign">Créer une campagne</button>
+    <button mat-menu-item *ngIf="authService.isUserLoggedIn()" (click)="logout()">Log Out</button>
+  </mat-menu>
+  
+  
+</mat-toolbar>
+
+<router-outlet></router-outlet>
