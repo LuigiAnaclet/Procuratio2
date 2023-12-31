@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
-  private baseUrl: string = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com:443/api/products';
+  private baseUrl: string = 'http://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/api/products';
 
   constructor(private httpClient: HttpClient) { }
 
@@ -33,7 +33,7 @@ export class ProductsService {
   }
 
   uploadImage(imageData: FormData): Observable<any> {
-    return this.httpClient.post(`${this.baseUrl}`+'/uploadS', imageData);
+    return this.httpClient.post('http://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/api/products/uploadS', imageData);
   }
 
   reduceProductQuantity(productId: number, quantity: number): Observable<any> {

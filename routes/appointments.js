@@ -33,7 +33,7 @@ router.get('/api/appointments/availability', async (req, res) => {
 
     const appointments = await getAppointmentsForEmployee(employee_id, desired_date);
 
-    console.log(employee_id);
+    //console.log(employee_id);
 
     const availableSlots = getAvailableSlots(timeSlots, appointments, serviceDuration);
 

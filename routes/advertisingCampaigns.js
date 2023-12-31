@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Créer une nouvelle campagne
 router.post('/api/campaigns', async (req, res) => {
-    console.log(req.body);
+    //console.log(req.body);
     const { title, message, sendDate } = req.body;
 
     try {

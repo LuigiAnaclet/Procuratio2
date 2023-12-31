@@ -15,7 +15,7 @@ const promoRoutes=require('./routes/promo');
 const customersRoutes=require('./routes/customers');
 const messages=require('./messages');
 const paymentsRoutes=require('./routes/payment');
-const PORT = 443;
+const PORT = 3000;
 require('dotenv').config();
 
 app.use(cors()); 
@@ -52,7 +52,7 @@ app.get('/*', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on https://procuratio-lanaclet.francecentral.cloudapp.azure.com:${PORT}`);
+    console.log(`Server is running on http://procuratio-lanaclet.francecentral.cloudapp.azure.com:${PORT}`);
 });
 
 

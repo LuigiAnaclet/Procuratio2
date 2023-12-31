@@ -8,6 +8,7 @@ import { Customer } from '../models/customer.model';
 import { Purchase } from '../models/purchase.model';
 import { AppointmentService } from '../services/appointment.service';
 import { Appointment } from '../models/appointment.model';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-customer-file',
@@ -21,14 +22,25 @@ export class CustomerFileComponent implements OnInit {
   selectedCustomer: Customer | null = null; 
   purchases:Purchase[] =[];
   appointments: Appointment[]= [];
+  isEmployee!: boolean;
 
-  constructor(private customerService: CustomerService,private userService: UserService,private appointmentService: AppointmentService) {}
+  constructor(private customerService: CustomerService,private userService: UserService,private appointmentService: AppointmentService,
+    private authService: AuthService) {}
 
   ngOnInit(): void {
-    this.userService.getAllCustomers().subscribe(customers => {
-      this.customers = customers;
-      this.setupFilter();
-    });
+
+    const currentUser = this.authService.getCurrentUser();
+    this.isEmployee = this.authService.isEmployee();
+    
+    if (!this.isEmployee && currentUser && currentUser.user_id) {
+      this.loadCustomerDetails(currentUser.user_id);
+    } else {
+      this.userService.getAllCustomers().subscribe(customers => {
+        this.customers = customers;
+        this.setupFilter();
+      });
+    }
+    
   }
 
   private setupFilter(): void {
@@ -50,6 +62,16 @@ export class CustomerFileComponent implements OnInit {
 
   displayFn(customer: Customer): string {
     return customer && customer.first_name && customer.last_name ? `${customer.first_name} ${customer.last_name}` : '';
+  }
+
+  private loadCustomerDetails(userId: number): void {
+    this.customerService.getCustomerDetails(userId).subscribe(customerArray => {
+      this.selectedCustomer = Array.isArray(customerArray) && customerArray.length > 0 ? customerArray[0] : null;
+      //console.log(this.selectedCustomer);
+      if (this.selectedCustomer && this.selectedCustomer.user_id) {
+        this.fetchCustomerDetails(this.selectedCustomer.user_id);
+      }
+    });
   }
 
   onCustomerSelected(customer: Customer): void {

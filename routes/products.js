@@ -34,7 +34,7 @@ router.patch('/api/products/reduceQuantity/:id', async (req, res) => {
 //Ajouter des produits
 router.post('/api/products', async (req, res) => {
     const { name, picture, quantity, price, description, brand, type, supplier, date_added } = req.body;
-
+    //console.log(req.body);
     try {
 
         const newProduct = await pool.query(
@@ -117,7 +117,7 @@ router.delete('/api/products/:id', async (req, res) => {
 //Setup du stockage des images
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-      cb(null, path.resolve(__dirname, '..', 'uploads')); // Use path.resolve to navigate one level up from current directory to the uploads folder
+      cb(null, path.resolve(__dirname, '..', 'uploads'));
     },
     filename: (req, file, cb) => {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
@@ -127,7 +127,7 @@ const storage = multer.diskStorage({
   const upload = multer({ storage: storage });
 
 router.post('/api/products/uploads', upload.single('image'), (req, res, next) => {
-    const imageUrl = 'http://localhost:3000/uploads/' + req.file.filename; 
+    const imageUrl = 'http://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/uploads/' + req.file.filename; 
     res.status(200).json({ imageUrl: imageUrl });
 });
 

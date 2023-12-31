@@ -59,6 +59,19 @@ router.get('/api/customers/:id/purchases', async (req, res) => {
     }
   });
 
+
+  router.get('/api/customers/:id', async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+        const customerId = await pool.query('SELECT * FROM customers WHERE user_id = $1', [id]);
+      res.json(customerId.rows);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Error retrieving customer', error: error.message });
+    }
+  });
+
   
     
 

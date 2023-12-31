@@ -1,4 +1,5 @@
 <div class="customer-file-container">
+  <div *ngIf="isEmployee" class="customer-file-container">
     <mat-form-field appearance="fill">
       <mat-label>Select a Customer</mat-label>
       <input type="text" matInput [formControl]="customerControl" [matAutocomplete]="auto" placeholder="Search customer...">
@@ -9,7 +10,8 @@
   </mat-option>
 </mat-autocomplete>
     </mat-form-field>
-    <div *ngIf="selectedCustomer">
+  </div>
+  <div *ngIf="selectedCustomer">
         <h2>Personal Information</h2>
       <h3>{{ selectedCustomer.first_name }} {{ selectedCustomer.last_name }}</h3>
       <p>Email: {{ selectedCustomer.email }}</p>

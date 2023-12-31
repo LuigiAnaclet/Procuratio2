@@ -109,7 +109,7 @@ router.get('/api/sales-receipts/:id', async (req, res) => {
 
 
 router.delete('/api/sales-receipts/:id', async (req, res) => {
-  console.log(req.params.id);
+  //console.log(req.params.id);
   try {
       const result_item = await pool.query('DELETE FROM salesreceipts.receipt_items WHERE receipt_id = $1 RETURNING *', [req.params.id]);
       const result = await pool.query('DELETE FROM salesreceipts.salesreceipts WHERE receipt_id = $1 RETURNING *', [req.params.id]);

@@ -27,8 +27,8 @@
         <p><strong>Quantity:</strong> {{ product.quantity }}  </p>
         <p><strong>Supplier:</strong> {{ product.supplier }}  </p>
         <p><strong>Order Date:</strong> {{ product.date_added | date: 'dd/MM/yyyy' }}  </p> 
-        <button *ngIf="authService.isEmployee()" mat-raised-button color="primary" (click)="editProduct(product)">Edit</button>
-        <button *ngIf="authService.isEmployee()" mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
+        <button *ngIf="authService.isEmployee() || authService.isAdmin()" mat-raised-button color="primary" (click)="editProduct(product)">Edit</button>
+        <button *ngIf="authService.isEmployee() || authService.isAdmin()" mat-raised-button color="warn" (click)="deleteProduct(product)">Delete</button>
         
         <button *ngIf="authService.isCustomer()" (click)="addToCart(product)">Add to Cart</button>
       </div>
@@ -37,7 +37,7 @@
 
 
 
-  <mat-tab *ngIf="authService.isEmployee()" label="Services">
+  <mat-tab *ngIf="authService.isEmployee() || authService.isAdmin()" label="Services">
     <div *ngFor="let service of services" class="service-details">
       <div class="service-details">
         <h3>{{ service.name }}  </h3>
