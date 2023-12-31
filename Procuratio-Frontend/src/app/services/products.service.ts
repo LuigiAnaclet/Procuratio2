@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class ProductsService {
 
-  private baseUrl: string = 'http://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/products';
+  private baseUrl: string = 'https://procuratio-lanaclet.francecentral.cloudapp.azure.com/api/products';
 
   constructor(private httpClient: HttpClient) { }
 
