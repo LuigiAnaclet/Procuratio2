@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"No tests specified\"",
-  "start": "node server.js",
-  "build:frontend": "cd Procuratio-Frontend && ng build"
+    "start": "node server.js",
+    "build:frontend": "cd Procuratio-Frontend && ng build"
   },
   "keywords": [],
   "author": "",
