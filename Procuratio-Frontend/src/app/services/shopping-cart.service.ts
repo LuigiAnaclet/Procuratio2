@@ -45,7 +45,7 @@ export class ShoppingCartService {
     
 
     getProductDetails(productId: number): Observable<Product> {
-      return this.httpClient.get<Product>(`http://localhost:3000/api/products/${productId}`);
+      return this.httpClient.get<Product>(`http://procuratio-lanaclet.francecentral.cloudapp.azure.com:3000/api/products/${productId}`);
     }
 
     
