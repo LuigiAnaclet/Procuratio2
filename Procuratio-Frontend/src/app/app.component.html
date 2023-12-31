@@ -28,7 +28,7 @@
     <button mat-menu-item routerLink="/appointment">RDV</button>
     <button mat-menu-item routerLink="/appointment/create">Prendre RDV</button>
     <button mat-menu-item routerLink="/appointment/availability">Disponibilité RDV</button>
-    <button mat-menu-item *ngIf="authService.isEmployee() || authService.isAdmin()" routerLink="/customer-file">Fichier client</button>
+    <button mat-menu-item *ngIf="authService.isUserLoggedIn()" routerLink="/customer-file">Fichier client</button>
     <button mat-menu-item *ngIf="authService.isEmployee() || authService.isAdmin()" routerLink="/campaign">Créer une campagne</button>
     <button mat-menu-item *ngIf="authService.isUserLoggedIn()" (click)="logout()">Log Out</button>
   </mat-menu>
